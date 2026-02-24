@@ -1,5 +1,5 @@
 import React from 'react';
-import { Instagram, Mail } from 'lucide-react';
+import { Instagram, Mail, Youtube } from 'lucide-react';
 import { Logo } from './Logo';
 
 export function Footer() {
@@ -20,6 +20,10 @@ export function Footer() {
           <a href="https://instagram.com/desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
             <Instagram className="w-4 h-4" />
             Instagram
+          </a>
+          <a href="https://www.youtube.com/@desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
+            <Youtube className="w-4 h-4" />
+            YouTube
           </a>
           <a href="https://desaceleraeavanca.substack.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
             <Mail className="w-4 h-4" />
