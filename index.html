@@ -20,6 +20,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Desacelera & Avança</title>
+    <script>
+      // Previne o erro "referenceSetter is not defined" do formulário do Zoho
+      window.referenceSetter = window.referenceSetter || function() {};
+    </script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
@@ -28,6 +32,24 @@
     <!-- End Google Tag Manager (noscript) -->
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        // 1. Captura os parâmetros da URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const originValue = urlParams.get('src'); // Ele procura por ?src=
+
+        if (originValue) {
+          // 2. Procura o campo de "Origem" no formulário do Zoho
+          // Certifique-se de que o 'name' ou 'id' corresponda ao gerado pelo Zoho
+          const originField = document.querySelector('input[name="CONTACT_CF1"]'); 
+
+          if (originField) {
+            originField.value = originValue;
+            console.log("Origem capturada: " + originValue);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
 
