@@ -1,19 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { ArrowRight } from 'lucide-react';
 
 export function ZohoForm() {
   const [source, setSource] = useState('utm_source');
+  const formRef = useRef<HTMLFormElement>(null);
 
   useEffect(() => {
-    // Captura a origem (src) da URL de forma nativa no React
     const urlParams = new URLSearchParams(window.location.search);
     const originValue = urlParams.get('src');
-    
     if (originValue) {
       setSource(originValue);
       console.log("Origem capturada no React: " + originValue);
     }
   }, []);
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault(); // Impede o envio padrão do React
+    const form = e.currentTarget;
+    
+    // Remove o campo honeypot exatamente como o script original do Zoho faz
+    const spm = form.querySelector('#zc_spmSubmit');
+    if (spm) {
+      spm.remove();
+    }
+    
+    // Envia o formulário nativamente
+    form.submit();
+  };
 
   return (
     <div className="w-full max-w-md mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-sm shadow-2xl">
@@ -25,17 +38,21 @@ export function ZohoForm() {
       </div>
 
       <form 
+        ref={formRef}
         method="POST" 
         action="https://zgnp-zngp.maillist-manage.com/weboptin.zc" 
-        target="_blank"
+        target="_self"
+        onSubmit={handleSubmit}
         className="space-y-4"
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Primeiro Nome</label>
+            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Nome <span className="text-red-400">*</span></label>
             <input 
               type="text" 
               name="FIRSTNAME" 
+              required
+              maxLength={100}
               className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all"
               placeholder="Seu nome"
             />
@@ -45,6 +62,7 @@ export function ZohoForm() {
             <input 
               type="text" 
               name="LASTNAME" 
+              maxLength={50}
               className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all"
               placeholder="Seu sobrenome"
             />
@@ -52,11 +70,12 @@ export function ZohoForm() {
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-medium text-white/60 uppercase tracking-wider">E-mail de contato <span className="text-red-400">*</span></label>
+          <label className="text-xs font-medium text-white/60 uppercase tracking-wider">E-mail <span className="text-red-400">*</span></label>
           <input 
             type="email" 
             name="CONTACT_EMAIL" 
             required 
+            maxLength={100}
             className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all"
             placeholder="seu@email.com"
           />
@@ -77,6 +96,9 @@ export function ZohoForm() {
         <input type="hidden" name="zctd" value="11656ace12fbcbb91" />
         <input type="hidden" name="zc_formIx" value="3z02d0d900793de3f7d361e31832b9885ae35fa8fe750f69ef7beb45e76939cb13" />
         <input type="hidden" name="scriptless" value="yes" />
+        
+        {/* Honeypot (Anti-spam) - Será removido pelo handleSubmit antes de enviar */}
+        <input type="hidden" id="zc_spmSubmit" name="zc_spmSubmit" value="ZCSPMSUBMIT" />
 
         <button 
           type="submit" 
