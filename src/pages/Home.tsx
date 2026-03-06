@@ -32,7 +32,7 @@ export default function Home() {
           <p className="animate-fade-up delay-300 text-[17px] text-brand-text max-w-[650px] mb-10 leading-[1.7]">
             Se você já tentou se organizar de tudo quanto é jeito e ainda assim sente que está sempre devendo: esse guia é pra você.
             <br /><br />
-            Não pra te consertar. Pra te mostrar que o problema nunca foi o caos.
+            Não pra te consertar, mas pra te mostrar que o caos nunca foi o problema.
           </p>
 
           <ul className="animate-fade-up delay-400 flex flex-col gap-4 list-none">
