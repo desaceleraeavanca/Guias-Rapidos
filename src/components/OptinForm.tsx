@@ -50,11 +50,14 @@ export function OptinForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white/[0.03] border border-white/10 rounded-2xl p-8 backdrop-blur-sm shadow-2xl">
+    <div className="w-full max-w-md mx-auto bg-white/[0.03] border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden">
+      {/* Subtle top highlight */}
+      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
+
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2">Junte-se à nossa newsletter</h2>
+        <h2 className="text-2xl font-bold text-white mb-2">Baixe o Guia Gratuito</h2>
         <p className="text-white/60 text-sm">
-          Preencha este formulário para criar uma conta, receber atualizações por e-mail e muito mais.
+          Preencha os dados abaixo para receber o material completo diretamente no seu e-mail.
         </p>
       </div>
 
@@ -64,14 +67,14 @@ export function OptinForm() {
       >
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Nome <span className="text-red-400">*</span></label>
+            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Nome <span className="text-emerald-400">*</span></label>
             <input 
               type="text" 
               name="FIRSTNAME" 
               required
               maxLength={100}
               disabled={isLoading}
-              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all disabled:opacity-50"
+              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
               placeholder="Seu nome"
             />
           </div>
@@ -82,21 +85,21 @@ export function OptinForm() {
               name="LASTNAME" 
               maxLength={50}
               disabled={isLoading}
-              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all disabled:opacity-50"
+              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
               placeholder="Seu sobrenome"
             />
           </div>
         </div>
 
         <div className="space-y-1.5">
-          <label className="text-xs font-medium text-white/60 uppercase tracking-wider">E-mail <span className="text-red-400">*</span></label>
+          <label className="text-xs font-medium text-white/60 uppercase tracking-wider">E-mail <span className="text-emerald-400">*</span></label>
           <input 
             type="email" 
             name="CONTACT_EMAIL" 
             required 
             maxLength={100}
             disabled={isLoading}
-            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-white/30 focus:ring-1 focus:ring-white/30 transition-all disabled:opacity-50"
+            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
             placeholder="seu@email.com"
           />
         </div>
@@ -104,23 +107,23 @@ export function OptinForm() {
         <button 
           type="submit" 
           disabled={isLoading}
-          className="w-full group bg-white text-black font-medium rounded-xl px-4 py-3.5 hover:bg-white/90 transition-all mt-6 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+          className="w-full group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-xl px-4 py-4 hover:from-emerald-400 hover:to-emerald-500 transition-all mt-6 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-emerald-500/20"
         >
           {isLoading ? (
             <>
-              <Loader2 className="w-4 h-4 animate-spin" />
+              <Loader2 className="w-5 h-5 animate-spin" />
               Enviando...
             </>
           ) : (
             <>
-              Junte-se agora
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              Quero Receber o Guia
+              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </>
           )}
         </button>
         
-        <p className="text-center text-xs text-white/30 mt-4">
-          *Campos obrigatórios
+        <p className="text-center text-xs text-white/30 mt-4 flex items-center justify-center gap-1">
+          <span className="text-emerald-400">*</span> Suas informações estão seguras.
         </p>
       </form>
     </div>
