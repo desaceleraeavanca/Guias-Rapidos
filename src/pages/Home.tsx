@@ -22,12 +22,14 @@ export default function Home() {
           <h1 className="animate-fade-up delay-200 font-display text-[clamp(38px,5vw,58px)] font-extrabold leading-[1.08] text-brand-white mb-6 tracking-[-0.02em]">
             Produtividade<br />
             não é sobre<br />
-            <em className="not-italic text-brand-teal">controlar</em> o caos.<br />
-            <span className="text-[0.78em] text-brand-muted font-bold block mt-2">É sobre parar de lutar contra ele.</span>
+            <em className="not-italic text-brand-teal">controlar</em> o caos<br />
+            <span className="text-[0.78em] text-brand-muted font-bold block mt-2">É sobre parar de lutar contra ele</span>
           </h1>
 
           <p className="animate-fade-up delay-300 text-[17px] text-brand-text max-w-[500px] mb-10 leading-[1.7]">
-            Se você já tentou se organizar de tudo quanto é jeito e ainda assim sente que está sempre devendo — esse guia foi feito pra você. Não pra te consertar. Pra te mostrar que o problema nunca foi o caos.
+            Se você já tentou se organizar de tudo quanto é jeito e ainda assim sente que está sempre devendo: esse guia é pra você.
+            <br /><br />
+            Não pra te consertar. Pra te mostrar que o problema nunca foi o caos.
           </p>
 
           <ul className="animate-fade-up delay-400 flex flex-col gap-4 list-none">
