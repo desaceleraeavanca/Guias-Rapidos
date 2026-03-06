@@ -1,39 +1,51 @@
 import React from 'react';
-import { Instagram, Mail, Youtube } from 'lucide-react';
-import { Logo } from './Logo';
 
 export function Footer() {
   return (
-    <footer className="border-t border-white/10 py-12 px-6 w-full mt-auto">
-      <div className="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+    <footer className="relative z-10 border-t border-brand-border px-8 py-6">
+      <div className="max-w-[1100px] mx-auto flex items-center justify-between gap-6 flex-wrap">
         <div className="flex items-center gap-3">
-          <div className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center border border-white/20">
-            <Logo className="w-4 h-4" />
+          <div className="w-[34px] h-[34px] rounded-full bg-brand-teal flex items-center justify-center text-[16px]">
+            ⚡
           </div>
           <div>
-            <h4 className="font-bold text-sm">Desacelera & Avança</h4>
-            <p className="text-xs text-white/40 font-mono uppercase tracking-wider">Método da Produtividade Caótica™</p>
+            <strong className="block font-display text-[13px] font-bold text-brand-white">
+              Desacelera &amp; Avança
+            </strong>
+            <span className="text-[10px] tracking-[0.1em] uppercase text-brand-muted">
+              Método da Produtividade Caótica™
+            </span>
           </div>
         </div>
-        
-        <div className="flex items-center gap-6 text-sm font-light text-white/60">
-          <a href="https://instagram.com/desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Instagram className="w-4 h-4" />
+
+        <nav className="hidden md:flex gap-7">
+          <a href="https://instagram.com/desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="text-brand-muted no-underline text-[13px] flex items-center gap-[7px] transition-colors hover:text-brand-teal">
+            <svg viewBox="0 0 14 14" className="w-[14px] h-[14px] stroke-current fill-none stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+              <rect x="1" y="1" width="12" height="12" rx="3"/>
+              <circle cx="7" cy="7" r="2.5"/>
+              <circle cx="10.5" cy="3.5" r="0.5" fill="currentColor"/>
+            </svg>
             Instagram
           </a>
-          <a href="https://www.youtube.com/@desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Youtube className="w-4 h-4" />
+          <a href="https://www.youtube.com/@desaceleraeavanca" target="_blank" rel="noopener noreferrer" className="text-brand-muted no-underline text-[13px] flex items-center gap-[7px] transition-colors hover:text-brand-teal">
+            <svg viewBox="0 0 14 14" className="w-[14px] h-[14px] stroke-current fill-none stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+              <rect x="1" y="3" width="12" height="8" rx="2"/>
+              <polygon points="6,5 9,7 6,9" />
+            </svg>
             YouTube
           </a>
-          <a href="https://desaceleraeavanca.substack.com/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 hover:text-white transition-colors">
-            <Mail className="w-4 h-4" />
+          <a href="https://desaceleraeavanca.substack.com/" target="_blank" rel="noopener noreferrer" className="text-brand-muted no-underline text-[13px] flex items-center gap-[7px] transition-colors hover:text-brand-teal">
+            <svg viewBox="0 0 14 14" className="w-[14px] h-[14px] stroke-current fill-none stroke-[1.8] stroke-linecap-round stroke-linejoin-round">
+              <rect x="1" y="3" width="12" height="9" rx="1.5"/>
+              <polyline points="1,3 7,8 13,3"/>
+            </svg>
             Newsletter
           </a>
-        </div>
-        
-        <div className="text-xs text-white/30 font-mono">
-          © 2026 - Todos os direitos reservados
-        </div>
+        </nav>
+
+        <span className="text-[12px] text-brand-muted">
+          © {new Date().getFullYear()} – Todos os direitos reservados
+        </span>
       </div>
     </footer>
   );

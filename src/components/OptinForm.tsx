@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ArrowRight, Loader2 } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 
 export function OptinForm() {
   const [source, setSource] = useState('utm_source');
@@ -22,10 +22,7 @@ export function OptinForm() {
     const formData = new FormData(form);
     
     const nome = formData.get('FIRSTNAME') as string;
-    const sobrenome = formData.get('LASTNAME') as string;
     const email = formData.get('CONTACT_EMAIL') as string;
-
-    const fullName = sobrenome ? `${nome} ${sobrenome}`.trim() : nome;
 
     try {
       await fetch('https://hook.us2.make.com/ynpmirpmb8hwq51hlbdruedmen4r7ria', {
@@ -34,7 +31,7 @@ export function OptinForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          nome: fullName,
+          nome: nome,
           email: email,
           source: source
         }),
@@ -50,56 +47,42 @@ export function OptinForm() {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto bg-white/[0.03] border border-white/10 rounded-3xl p-8 backdrop-blur-md shadow-2xl relative overflow-hidden">
-      {/* Subtle top highlight */}
-      <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-emerald-400 to-cyan-400"></div>
+    <div className="bg-brand-surface border border-brand-border rounded-[20px] px-9 py-10 relative overflow-hidden">
+      {/* Top gradient line */}
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal to-transparent"></div>
 
       <div className="text-center mb-8">
-        <h2 className="text-2xl font-bold text-white mb-2">Baixe o Guia Gratuito</h2>
-        <p className="text-white/60 text-sm">
-          Preencha os dados abaixo para receber o material completo diretamente no seu e-mail.
+        <h2 className="font-display text-[22px] font-bold text-brand-white mb-2">Receba o Guia Gratuito</h2>
+        <p className="text-[14px] text-brand-muted leading-[1.6]">
+          Preencha abaixo e receba o material direto no seu e-mail.
         </p>
       </div>
 
-      <form 
-        onSubmit={handleSubmit}
-        className="space-y-4"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Nome <span className="text-emerald-400">*</span></label>
-            <input 
-              type="text" 
-              name="FIRSTNAME" 
-              required
-              maxLength={100}
-              disabled={isLoading}
-              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
-              placeholder="Seu nome"
-            />
-          </div>
-          <div className="space-y-1.5">
-            <label className="text-xs font-medium text-white/60 uppercase tracking-wider">Sobrenome</label>
-            <input 
-              type="text" 
-              name="LASTNAME" 
-              maxLength={50}
-              disabled={isLoading}
-              className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
-              placeholder="Seu sobrenome"
-            />
-          </div>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+          <label className="block text-[11px] font-medium tracking-[0.1em] uppercase text-brand-muted mb-2">
+            Nome <span className="text-brand-teal ml-0.5">*</span>
+          </label>
+          <input 
+            type="text" 
+            name="FIRSTNAME" 
+            required
+            disabled={isLoading}
+            className="w-full bg-white/5 border border-brand-border rounded-[10px] px-4 py-[13px] font-sans text-[15px] text-brand-white outline-none transition-colors focus:border-brand-teal-dim focus:bg-brand-teal/5 disabled:opacity-50 placeholder:text-[#3a5448]"
+            placeholder="Como você quer ser chamado?"
+          />
         </div>
 
-        <div className="space-y-1.5">
-          <label className="text-xs font-medium text-white/60 uppercase tracking-wider">E-mail <span className="text-emerald-400">*</span></label>
+        <div className="mb-4">
+          <label className="block text-[11px] font-medium tracking-[0.1em] uppercase text-brand-muted mb-2">
+            E-mail <span className="text-brand-teal ml-0.5">*</span>
+          </label>
           <input 
             type="email" 
             name="CONTACT_EMAIL" 
             required 
-            maxLength={100}
             disabled={isLoading}
-            className="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/20 focus:outline-none focus:border-emerald-500/50 focus:ring-1 focus:ring-emerald-500/50 transition-all disabled:opacity-50"
+            className="w-full bg-white/5 border border-brand-border rounded-[10px] px-4 py-[13px] font-sans text-[15px] text-brand-white outline-none transition-colors focus:border-brand-teal-dim focus:bg-brand-teal/5 disabled:opacity-50 placeholder:text-[#3a5448]"
             placeholder="seu@email.com"
           />
         </div>
@@ -107,23 +90,30 @@ export function OptinForm() {
         <button 
           type="submit" 
           disabled={isLoading}
-          className="w-full group bg-gradient-to-r from-emerald-500 to-emerald-600 text-white font-semibold rounded-xl px-4 py-4 hover:from-emerald-400 hover:to-emerald-500 transition-all mt-6 flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed shadow-lg shadow-emerald-500/20"
+          className="w-full mt-5 px-6 py-4 bg-brand-teal border-none rounded-xl font-display text-[16px] font-bold text-[#051a10] cursor-pointer flex items-center justify-center gap-2.5 transition-all hover:bg-[#00ffb2] hover:-translate-y-[1px] active:translate-y-0 disabled:opacity-70 disabled:cursor-not-allowed tracking-[0.01em]"
         >
           {isLoading ? (
             <>
-              <Loader2 className="w-5 h-5 animate-spin" />
+              <Loader2 className="w-[18px] h-[18px] animate-spin" />
               Enviando...
             </>
           ) : (
             <>
-              Quero Receber o Guia
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              Quero o Guia Agora
+              <svg viewBox="0 0 18 18" className="w-[18px] h-[18px] stroke-[#051a10] fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
+                <line x1="3" y1="9" x2="15" y2="9"/>
+                <polyline points="10,4 15,9 10,14"/>
+              </svg>
             </>
           )}
         </button>
         
-        <p className="text-center text-xs text-white/30 mt-4 flex items-center justify-center gap-1">
-          <span className="text-emerald-400">*</span> Suas informações estão seguras.
+        <p className="mt-3.5 text-center text-[12px] text-brand-muted flex items-center justify-center gap-1.5">
+          <svg viewBox="0 0 14 14" className="w-[13px] h-[13px] stroke-brand-muted fill-none stroke-2 stroke-linecap-round stroke-linejoin-round">
+            <rect x="2" y="6" width="10" height="7" rx="1.5"/>
+            <path d="M4.5 6V4.5a2.5 2.5 0 015 0V6"/>
+          </svg>
+          Seus dados estão seguros. Sem spam.
         </p>
       </form>
     </div>

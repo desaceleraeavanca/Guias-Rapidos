@@ -1,73 +1,60 @@
 import React from 'react';
 import { Footer } from '../components/Footer';
 import { OptinForm } from '../components/OptinForm';
-import { CheckCircle2, BookOpen } from 'lucide-react';
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-[#050505] text-white selection:bg-emerald-500/30 font-sans relative overflow-hidden flex flex-col">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop')] opacity-[0.03] mix-blend-overlay pointer-events-none bg-cover bg-center"></div>
-      <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-emerald-500/10 blur-[120px] pointer-events-none"></div>
-      <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-cyan-500/10 blur-[120px] pointer-events-none"></div>
+    <div className="min-h-screen flex flex-col relative">
+      <div className="glow-left"></div>
+      <div className="glow-right"></div>
 
-      <div className="max-w-7xl mx-auto px-6 pt-8 pb-24 relative z-10 flex flex-col flex-1 w-full">
-        {/* Header/Logo area */}
-        <header className="mb-16 md:mb-24 flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-emerald-400 to-emerald-600 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-            <BookOpen className="w-5 h-5 text-black" />
-          </div>
-          <span className="font-bold text-xl tracking-tight">Desacelera & Avança</span>
-        </header>
-
-        {/* Main Content */}
-        <main className="flex-1 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          {/* Left Column: Copy */}
-          <div className="space-y-8">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-emerald-400 text-xs font-semibold tracking-wide uppercase">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Guia 100% Gratuito
-            </div>
-
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight">
-              Os <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">7 Erros</span> que travam o seu avanço.
-            </h1>
-
-            <p className="text-lg md:text-xl text-white/60 leading-relaxed max-w-xl">
-              Descubra o que você está fazendo de errado e aprenda o método comprovado para destravar seu crescimento hoje mesmo, sem perder mais tempo.
-            </p>
-
-            <div className="space-y-5 pt-4">
-              {[
-                "O erro #1 que 90% das pessoas cometem sem perceber.",
-                "Como parar de perder tempo com estratégias que não funcionam.",
-                "O segredo simples para acelerar seus resultados em 30 dias."
-              ].map((benefit, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <CheckCircle2 className="w-6 h-6 text-emerald-500 shrink-0 mt-0.5" />
-                  <span className="text-white/80 text-lg">{benefit}</span>
-                </div>
-              ))}
-            </div>
+      <main className="relative z-10 flex-1 max-w-[1100px] mx-auto w-full px-8 pt-20 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-center">
+        {/* LEFT COLUMN */}
+        <div className="flex flex-col items-start">
+          <div className="animate-fade-up delay-100 inline-flex items-center gap-2 bg-brand-teal/10 border border-brand-teal/20 text-brand-teal text-[11px] font-medium tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-full mb-7">
+            <span className="relative flex h-1.5 w-1.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-teal opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-brand-teal"></span>
+            </span>
+            Guia 100% gratuito
           </div>
 
-          {/* Right Column: Form */}
-          <div className="relative w-full max-w-md mx-auto lg:mr-0">
-            {/* Decorative elements behind form */}
-            <div className="absolute -inset-1 bg-gradient-to-r from-emerald-500/20 to-cyan-500/20 rounded-[2.5rem] blur-xl opacity-50"></div>
-            <div className="relative">
-              <OptinForm />
-            </div>
-          </div>
-        </main>
-      </div>
-      
-      <div className="relative z-10 mt-auto">
-        <Footer />
-      </div>
+          <h1 className="animate-fade-up delay-200 font-display text-[clamp(38px,5vw,58px)] font-extrabold leading-[1.08] text-brand-white mb-6 tracking-[-0.02em]">
+            Produtividade<br />
+            não é sobre<br />
+            <em className="not-italic text-brand-teal">controlar</em> o caos.<br />
+            <span className="text-[0.78em] text-brand-muted font-bold block mt-2">É sobre parar de lutar contra ele.</span>
+          </h1>
+
+          <p className="animate-fade-up delay-300 text-[17px] text-brand-text max-w-[500px] mb-10 leading-[1.7]">
+            Se você já tentou se organizar de tudo quanto é jeito e ainda assim sente que está sempre devendo — esse guia foi feito pra você. Não pra te consertar. Pra te mostrar que o problema nunca foi o caos.
+          </p>
+
+          <ul className="animate-fade-up delay-400 flex flex-col gap-4 list-none">
+            {[
+              "Por que sistemas rígidos quebram exatamente quando você mais precisa deles",
+              "O erro que faz você se sentir improdutivo mesmo quando entrega resultado",
+              "Como trabalhar do seu jeito — sem culpa, sem burnout, sem fingir que você é outra pessoa"
+            ].map((text, i) => (
+              <li key={i} className="flex items-start gap-3 text-[15px] text-brand-text">
+                <span className="shrink-0 w-[22px] h-[22px] rounded-full border-[1.5px] border-brand-teal flex items-center justify-center mt-0.5">
+                  <svg viewBox="0 0 12 12" className="w-[11px] h-[11px] stroke-brand-teal fill-none stroke-[2.5] stroke-linecap-round stroke-linejoin-round">
+                    <polyline points="2,6 5,9 10,3" />
+                  </svg>
+                </span>
+                <span>{text}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        {/* RIGHT COLUMN */}
+        <div className="animate-fade-up delay-300 relative w-full max-w-md mx-auto lg:mr-0">
+          <OptinForm />
+        </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }
