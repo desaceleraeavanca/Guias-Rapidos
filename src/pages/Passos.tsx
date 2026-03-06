@@ -120,11 +120,10 @@ export default function Passos() {
             <p className="text-[#F27D26] font-mono text-xs tracking-[0.2em] uppercase font-bold">Guia Rápido</p>
           </div>
           
-          <div className="title-wrapper transform -skew-x-6 mb-12">
-            <h1 className="font-sans text-[12vw] md:text-[8vw] lg:text-[110px] leading-[0.85] tracking-tighter font-black uppercase text-white">
-              7 Passos <br/>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F27D26] to-[#FF4E00]">Simples</span> para <br/>
-              Retomar o Controle
+          <div className="mb-12">
+            <h1 className="font-sans text-[10vw] md:text-[6vw] lg:text-[56px] xl:text-[64px] leading-[1.1] tracking-tight font-bold text-white max-w-[1000px]">
+              7 Passos <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#F27D26] to-[#FF4E00]">Simples</span> <br className="hidden md:block" />
+              para Retomar o Controle
             </h1>
           </div>
           

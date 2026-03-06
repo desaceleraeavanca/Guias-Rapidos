@@ -52,9 +52,9 @@ export function OptinForm() {
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-brand-teal to-transparent"></div>
 
       <div className="text-center mb-8">
-        <h2 className="font-display text-[22px] font-bold text-brand-white mb-2">Receba o Guia Gratuito</h2>
+        <h2 className="font-sans text-[20px] font-bold text-brand-white mb-2">Receba o Guia Gratuito</h2>
         <p className="text-[14px] text-brand-muted leading-[1.6]">
-          Preencha abaixo e receba o material direto no seu e-mail.
+          Preencha e receba o material no seu e-mail
         </p>
       </div>
 

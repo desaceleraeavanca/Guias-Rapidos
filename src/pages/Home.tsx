@@ -8,7 +8,7 @@ export default function Home() {
       <div className="glow-left"></div>
       <div className="glow-right"></div>
 
-      <main className="relative z-10 flex-1 max-w-[1100px] mx-auto w-full px-8 pt-20 pb-24 grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-12 lg:gap-20 items-center">
+      <main className="relative z-10 flex-1 max-w-[1200px] mx-auto w-full px-8 pt-20 pb-24 grid grid-cols-1 lg:grid-cols-[1.3fr_400px] gap-12 lg:gap-16 items-center">
         {/* LEFT COLUMN */}
         <div className="flex flex-col items-start">
           <div className="animate-fade-up delay-100 inline-flex items-center gap-2 bg-brand-teal/10 border border-brand-teal/20 text-brand-teal text-[11px] font-medium tracking-[0.12em] uppercase px-3.5 py-1.5 rounded-full mb-7">
@@ -19,14 +19,17 @@ export default function Home() {
             Guia 100% gratuito
           </div>
 
-          <h1 className="animate-fade-up delay-200 font-display text-[clamp(38px,5vw,58px)] font-extrabold leading-[1.08] text-brand-white mb-6 tracking-[-0.02em]">
-            Produtividade<br />
-            não é sobre<br />
-            <em className="not-italic text-brand-teal">controlar</em> o caos<br />
-            <span className="text-[0.78em] text-brand-muted font-bold block mt-2">É sobre parar de lutar contra ele</span>
-          </h1>
+          <div className="animate-fade-up delay-200 mb-6">
+            <h1 className="font-sans text-[10vw] md:text-[6vw] lg:text-[56px] xl:text-[64px] leading-[1.1] tracking-tight font-bold text-white max-w-[800px]">
+              Produtividade não é <br className="hidden md:block" />
+              sobre <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-teal to-brand-teal-dim">controlar</span> o caos
+            </h1>
+          </div>
+          <p className="animate-fade-up delay-200 text-[24px] md:text-[28px] text-brand-muted font-bold mb-8 tracking-tight">
+            É sobre parar de lutar contra ele
+          </p>
 
-          <p className="animate-fade-up delay-300 text-[17px] text-brand-text max-w-[500px] mb-10 leading-[1.7]">
+          <p className="animate-fade-up delay-300 text-[17px] text-brand-text max-w-[650px] mb-10 leading-[1.7]">
             Se você já tentou se organizar de tudo quanto é jeito e ainda assim sente que está sempre devendo: esse guia é pra você.
             <br /><br />
             Não pra te consertar. Pra te mostrar que o problema nunca foi o caos.
